@@ -31,12 +31,7 @@ public class UpdateTaskProgressServiceTest {
 		TaskDTO taskDTO = new TaskDTOFactory().build(TEST_TITLE, TEST_DESCRIPTION);
 		Task firstTask = this.createTaskService.execute(taskDTO);
 
-		System.out.println(firstTask.getProgress());
-		System.out.println(firstTask.getStatus().name());
-		System.out.println(firstTask.getId());
-
 		TaskProgressDTO taskProgressDTO = new TaskProgressDTOFactory().build(firstTask.getId(), TEST_PROGRESS);
-		System.out.println(taskProgressDTO.getProgress());
 		Task task = this.updateTaskProgressService.execute(taskProgressDTO);
 		Assert.assertEquals(firstTask.getProgress(), task.getProgress());
 	}
